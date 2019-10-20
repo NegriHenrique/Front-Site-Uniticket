@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; 
-import '../css/App.css';
-import Header from './header/Header';
+import '../styles/global/base.scss';
+import Header from './Header';
+import Routes from '../app/Routes';
 
 class Template extends Component {
 
@@ -24,8 +25,12 @@ class Template extends Component {
             <div className="main-wrapper">
                 <Header 
                     toggleSideBar={this.toggleSideBar}
+                    sideBarOpen={this.state.sideBarOpen}
                 />
                 
+                <div id="main-wrapper" className="container">
+                    <Routes />
+                </div>
             </div>
         );
     }

@@ -1,7 +1,15 @@
+@import './variables';
+
+small {
+  font: {
+    size: $font-size-sm;
+  }
+}
+
 .header {
   height: 40px;
   font-size: 1.8em;
-  box-shadow: 0px -1px 8px #ebebeb;
+  box-shadow: $shadow-bottom;
 }
 
 .click {
@@ -12,12 +20,12 @@
   background-size: cover;
   padding-top: 40px;
   width: 63px;
-  background-image: url('../img/logo/logo-mobile.png');
+  background-image: url('../../img/logo/logo-mobile.png');
 }
 
 @media screen and (min-width: 768px) {
   .logo {
     width: 190px;
-    background-image: url('../img/logo/logo-desktop.png');
+    background-image: url('../../img/logo/logo-desktop.png');
   }
 }
