@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/index.css';
-import './styles/global/global-dir';
+import './styles/global/_global-dir.scss';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'jquery/dist/jquery.js';

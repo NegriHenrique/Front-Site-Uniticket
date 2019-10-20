@@ -1,5 +1,9 @@
 @import './variables';
 
+#main-container {
+  height: calc(100vh - #{$height-header});
+}
+
 small {
   font: {
     size: $font-size-sm;
@@ -7,13 +11,17 @@ small {
 }
 
 .header {
-  height: 40px;
+  height: $height-header;
   font-size: 1.8em;
   box-shadow: $shadow-bottom;
 }
 
 .click {
    cursor: pointer;
+}
+
+.bg-primary {
+  background-color: $color-primary;
 }
 
 .logo {
