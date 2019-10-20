@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../styles/sidebar/index.scss';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { FaHome, FaChartArea } from 'react-icons/fa';
@@ -6,23 +7,28 @@ import { FaHome, FaChartArea } from 'react-icons/fa';
 // link for component https://reactjsexample.com/react-side-nav-component/
 
 export default class Sidebar extends Component {
+
   render() {
+    const defaultSelected = window.location.pathname.split('/').pop();
     return (
       <SideNav
-        onSelect={(selected) => {
-          // Add your code here
+        onToggle={open => {
+          this.props.sideNavOpen(open);
         }}
+        expanded={this.props.expanded}
         className="bg-primary"
       >
-        <SideNav.Toggle />
+        <SideNav.Toggle 
+          className='sidebar-icons'
+        />
         <SideNav.Nav 
           
-          defaultSelected="home"
+          defaultSelected={defaultSelected}
         >
-          <NavItem eventKey="home">
+          <NavItem  onSelect={() => {window.location='/home'}} eventKey="home">
             <NavIcon>
               <FaHome 
-                style={{ fontSize: '1.75em' }}
+                className='sidebar-icons'
               />
             </NavIcon>
             <NavText>
@@ -32,21 +38,21 @@ export default class Sidebar extends Component {
           <NavItem eventKey="charts">
             <NavIcon>
               <FaChartArea 
-                style={{ fontSize: '1.75em' }}
+                className='sidebar-icons'
               />
             </NavIcon>
             <NavText>
               Charts
               </NavText>
-            <NavItem eventKey="charts/linechart">
+            <NavItem onSelect={() => {window.location='/exemplo'}} eventKey="exemplo">
               <NavText>
                 Line Chart
-                  </NavText>
+              </NavText>
             </NavItem>
-            <NavItem eventKey="charts/barchart">
+            <NavItem onSelect={() => {window.location='/exemplo'}} eventKey="charts/barchart">
               <NavText>
                 Bar Chart
-                  </NavText>
+              </NavText>
             </NavItem>
           </NavItem>
         </SideNav.Nav>

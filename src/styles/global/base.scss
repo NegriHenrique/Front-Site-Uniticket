@@ -4,6 +4,13 @@
   height: calc(100vh - #{$height-header});
 }
 
+#main-container {
+  transition: padding 0.1s ease-out;
+  &.side-nav-expanded {
+    padding-left: 240px;
+  }
+}
+
 small {
   font: {
     size: $font-size-sm;
