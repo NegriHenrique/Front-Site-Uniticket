@@ -6,4 +6,6 @@
 ### In the project directory, you must run via terminal:
 
 > npm install
+to do the download of dependencies
+and after download completed run: 
 > npm start
