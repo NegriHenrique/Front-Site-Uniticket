@@ -8,7 +8,7 @@
 > node --version
 ###### 
 > npm --version
-###### e 
+######  
 > git --version
 ###### Caso apareça na tela que o comando não foi encontrado há um erro de instalação, caso mostre o valor da versão no formato v(versão) significa que está tudo corretamente instalado
 
