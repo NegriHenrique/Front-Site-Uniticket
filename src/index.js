@@ -9,7 +9,7 @@ import 'jquery/dist/jquery.js';
 import 'popper.js/dist/umd/popper.js';
 import 'bootstrap/dist/js/bootstrap.js'; 
 
-import Template from './components/Template';
+import Template from './components/Template.jsx';
 import Login from './app/Routes/Login'
 
 ReactDOM.render(
