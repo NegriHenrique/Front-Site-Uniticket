@@ -29,7 +29,7 @@ class Template extends Component {
                         expanded={this.state.expanded}
                         sideNavOpen={this.sideNavOpen}
                     />
-                    <div className={`container`} >
+                    <div className={`container h-100`} >
                         <Routes />
                     </div>
                 </div>
