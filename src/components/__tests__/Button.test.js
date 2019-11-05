@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Button from '../Button/Button';
 
 describe('testando botao', () => {
@@ -9,7 +9,18 @@ describe('testando botao', () => {
     )
 
     expect(wrapper).toMatchSnapshot()
-    wrapper.setProps({ content: "outro teste" })
-    expect(wrapper).toMatchSnapshot()
   });
+
+  it('onClick', () => {
+    const onClick = jest.fn();
+
+    const wrapper = mount(
+      <Button onClick={onClick}/>
+    )
+
+    wrapper.simulate('click');
+
+    expect(wrapper)
+
+  })
 })

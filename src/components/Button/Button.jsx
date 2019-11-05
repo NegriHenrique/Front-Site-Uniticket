@@ -4,15 +4,14 @@ import React from 'react';
 
 export default function Button(props) {
   
-  const { disabled, title, content, id, onClick, className } = props
+  const { disabled, content, onClick, className } = props
 
   return (
     <button 
-      id={id} 
       className={`btn text-uppercase ${className}`} 
       onClick={() => onClick()}
-      title={title}
       disabled={disabled ? true : false}
+      {...props}
     >
       <span> {content} </span>
     </button>

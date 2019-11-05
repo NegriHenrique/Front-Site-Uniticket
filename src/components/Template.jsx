@@ -9,7 +9,7 @@ class Template extends Component {
     constructor() {
         super();
         this.state = {
-            expanded: false,
+            expanded: true,
         }
         this.sideNavOpen = this.sideNavOpen.bind(this);
     }
