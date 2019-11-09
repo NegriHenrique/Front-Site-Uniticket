@@ -4,11 +4,11 @@ import React from 'react';
 
 export default function Button(props) {
   
-  const { disabled, content, onClick, className } = props
+  const { disabled, content, onClick, classNameButton } = props
 
   return (
     <button 
-      className={`btn text-uppercase ${className}`} 
+      className={`btn text-uppercase ${classNameButton}`} 
       onClick={() => onClick()}
       disabled={disabled ? true : false}
       {...props}

@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/sidebar/index.scss';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import { FaHome, FaChartArea } from 'react-icons/fa';
+import { FaHome, FaChartArea, FaCreditCard } from 'react-icons/fa';
 
 export default function Sidebar(props) {
   const defaultSelected = window.location.pathname.split('/').pop();
@@ -29,6 +29,16 @@ export default function Sidebar(props) {
           </NavIcon>
           <NavText>
             Home
+          </NavText>
+        </NavItem>
+        <NavItem onSelect={() => { window.location = '/aplicar-credito' }} eventKey="aplicar-credito">
+          <NavIcon>
+            <FaCreditCard
+              className='sidebar-icons text-white'
+            />
+          </NavIcon>
+          <NavText>
+            Aplicar Crédito
           </NavText>
         </NavItem>
         <NavItem eventKey="charts">

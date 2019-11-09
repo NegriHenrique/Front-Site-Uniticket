@@ -1,23 +1,32 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Button from '../Button/Button';
+import { expect } from 'chai'
 
 describe('testando botao', () => {
-  it('render', () => {
-    const wrapper = shallow(
-      <Button content="test"/>
-    )
 
-    expect(wrapper).toMatchSnapshot()
+  let wrapper
+  let props
+
+  beforeEach(() => {
+
+    props= { 
+      content: "test",
+      onClick: jest.fn()
+    }
+
+    wrapper = shallow( <Button {...props} />)
+  })
+
+  it('render', () => {
+    expect(wrapper).to.be.an('object')
   });
 
+  it('botao deve ter onclick', () => {
+    expect(wrapper.prop('onClick')).to.not.be.undefined
+  })
+
   it('onClick', () => {
-    const onClick = jest.fn();
-
-    const wrapper = mount(
-      <Button onClick={onClick}/>
-    )
-
     wrapper.simulate('click');
 
     expect(wrapper)

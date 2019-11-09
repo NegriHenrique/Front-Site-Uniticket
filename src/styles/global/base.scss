@@ -1,11 +1,22 @@
 @import './variables';
 
+h1 {
+  & span {
+    font-size: 0.7em;
+  }
+}
+
+button { 
+  max-height: 45px;
+}
+
 #main-container {
   height: calc(100vh - #{$height-header});
 }
 
 #main-container {
   transition: padding 0.1s ease-out;
+  padding-left: 65px;
   &.side-nav-expanded {
     padding-left: 240px;
   }

@@ -4,18 +4,26 @@ import AplicarCredito from '../../app/Routes/AplicarCredito';
 
 describe('Testando aplicacao de credito', () => {
 
-  it('render', () => {
-    const wrapper = shallow(
-      <AplicarCredito quantidadeTicket={2}/>
+  let wrapper
+  let props;
+
+  beforeEach(() => {
+
+    props = {
+      quantidadeTicket: 3
+    }
+
+    wrapper = shallow(
+      <AplicarCredito {...props}/>
     )
 
+  })
+
+  it('render', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
   it('diminuir a quantidade de ticket do usuario', () => {
-    const wrapper = shallow (
-      <AplicarCredito quantidadeTicket={3}/>
-    )
 
     wrapper
       .find('[data-test="removeTicketButton"]')
