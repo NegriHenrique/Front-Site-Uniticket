@@ -16,33 +16,33 @@ export default class Home extends Component {
 
   render() {
     const buttonprops = {
-      title: 'primary desativado',
-      className: 'btn-primary col-2 mt-3',
-      content: 'primary desativado',
+      title: 'desativado',
+      classNameButton: 'btn-primary col-2 mt-3',
+      content: 'desativado',
       onClick: this.onClickButton,
       disabled: true,
     }
     const buttonprops2 = {
       title: 'secondary',
-      className: 'btn-secondary col-2 mt-3',
+      classNameButton: 'btn-secondary col-2 mt-3',
       content: 'secondary',
       onClick: this.onClickButton,
     }
     const buttonprops3 = {
       title: 'success',
-      className: 'btn-success col-2 mt-3',
+      classNameButton: 'btn-success col-2 mt-3',
       content: 'success',
       onClick: this.onClickButton,
     }
     const buttonprops4 = {
       title: 'danger',
-      className: 'btn-danger col-2 mt-3',
+      classNameButton: 'btn-danger col-2 mt-3',
       content: 'danger',
       onClick: this.onClickButton,
     }
     const buttonprops5 = {
       title: 'outline primary',
-      className: 'btn-outline-primary col-2 mt-3',
+      classNameButton: 'btn-outline-primary col-2 mt-3',
       content: 'outline primary',
       onClick: this.onClickButton,
     }
