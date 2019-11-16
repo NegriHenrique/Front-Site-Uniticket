@@ -38,7 +38,7 @@ export default function Sidebar(props) {
             />
           </NavIcon>
           <NavText>
-            Aplicar Crédito
+            Consumir Crédito
           </NavText>
         </NavItem>
         <NavItem eventKey="charts">
