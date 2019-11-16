@@ -48,11 +48,11 @@ export default function Sidebar(props) {
             />
           </NavIcon>
           <NavText>
-            Charts
+            Relatórios
               </NavText>
-          <NavItem onSelect={() => { window.location = '/exemplo' }} eventKey="exemplo">
+          <NavItem onSelect={() => { window.location = '/relatorios/perfil-acesso' }} eventKey="exemplo">
             <NavText>
-              Line Chart
+              Perfil de acesso
               </NavText>
           </NavItem>
           <NavItem onSelect={() => { window.location = '/exemplo' }} eventKey="charts/barchart">
