@@ -2,13 +2,7 @@ import React from "react";
 import "../../styles/sidebar/index.scss";
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav";
-import {
-  FaHome,
-  FaChartArea,
-  FaCreditCard,
-  FaUtensils,
-  FaHamburger
-} from "react-icons/fa";
+import { FaHome, FaUtensils, FaHamburger } from "react-icons/fa";
 
 export default function Sidebar(props) {
   const defaultSelected = window.location.pathname.split("/").pop();
