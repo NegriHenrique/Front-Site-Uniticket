@@ -1,123 +1,94 @@
-import React, { Component } from 'react';
-import Button from '../../../components/Button/Button';
-import List from '../../../components/List/ContainerList';
-import Title from '../../../components/Title/Title';
-import Subtitle from '../../../components/Subtitle/Subtitle';
-import Paragraph from '../../../components/Paragraph/Paragraph';
-import InlineText from '../../../components/InlineText/InlineText';
-
-// import { Container } from './styles';
+import React, { Component } from "react";
+import { FaShoppingCart } from "react-icons/fa";
+import qrcode from "../../../img/qrcode.png";
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantidadeTicket: this.props.quantidadeTicket
+    };
+    this.removeTicket = this.removeTicket.bind(this);
+  }
 
-  onClickButton () {
-    alert("oi")
+  removeTicket() {
+    if (this.state.quantidadeTicket > 0)
+      this.setState({ quantidadeTicket: this.state.quantidadeTicket - 1 });
+    else alert("você não possui créditos para usar");
+  }
+
+  componentDidMount() {
+    if (this.props.quantidadeTicket === undefined) {
+      this.setState({ quantidadeTicket: 3 });
+    }
   }
 
   render() {
-    const buttonprops = {
-      title: 'desativado',
-      classNameButton: 'btn-primary col-2 mt-3',
-      content: 'desativado',
-      onClick: this.onClickButton,
-      disabled: true,
-    }
-    const buttonprops2 = {
-      title: 'secondary',
-      classNameButton: 'btn-secondary col-2 mt-3',
-      content: 'secondary',
-      onClick: this.onClickButton,
-    }
-    const buttonprops3 = {
-      title: 'success',
-      classNameButton: 'btn-success col-2 mt-3',
-      content: 'success',
-      onClick: this.onClickButton,
-    }
-    const buttonprops4 = {
-      title: 'danger',
-      classNameButton: 'btn-danger col-2 mt-3',
-      content: 'danger',
-      onClick: this.onClickButton,
-    }
-    const buttonprops5 = {
-      title: 'outline primary',
-      classNameButton: 'btn-outline-primary col-2 mt-3',
-      content: 'outline primary',
-      onClick: this.onClickButton,
-    }
-
-    const lista = {
-      id: 'lista-exemplo',
-      className: 'mt-4 flex-row', 
-      classNameData: 'list-group-item-action col',
-      data: [ 
-        {
-          id: 0,
-          className: 'list-group-item-primary',
-          onClick: this.onClickButton,
-          value: 'primary'
-        },
-        {
-          id: 0,
-          className: 'list-group-item-secondary',
-          onClick: this.onClickButton,
-          value: 'secondary'
-        },
-        {
-          id: 0,
-          className: 'list-group-item-success',
-          onClick: this.onClickButton,
-          value: 'success'
-        },
-        {
-          id: 0,
-          className: 'list-group-item-danger',
-          onClick: this.onClickButton,
-          value: 'danger'
-        },
-      ]
-    }
+    const { quantidadeTicket } = this.state;
 
     return (
-      <div>
-        <Title text='Isso é um titulo'/>
-        <Subtitle text='Isso é um subtitulo'/>
-        <div className='row d-flex justify-content-around'>
-          <div className='col-12'>
-            <Paragraph 
-              text='Aqui eu pus um paragrafo para identificar que é um paragrafo e embaixo terá tres inline text'
-            />
-            <InlineText 
-              text='span'
-              type='normal'
-              className='mr-3'
-            />
-            <InlineText 
-              text='strong'
-              type='bold'
-              className='mr-3'
-            />
-            <InlineText 
-              text='strike'
-              type='strike'
-              className='mr-3'
-            />
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <h3 className="px-3 mt-2">
+            <span className="mr-3">Você possui:</span>
+            {quantidadeTicket} crédito(s)
+          </h3>
+        </div>
+        <div className="d-flex justify-content-center align-items-center">
+          <img
+            alt="QRCode"
+            className="mt-2"
+            src={qrcode}
+            width="300"
+            height="300"
+          />
+        </div>
+        <div>
+          <hr />
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="quantity">Quantidade</label>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="50"
+                ></input>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="type">Valor</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">R$</span>
+                  </div>
+                  <input type="text" class="form-control" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div
+            className="d-flex"
+            style={{ justifyContent: "flex-end", marginTop: "-15px" }}
+          >
+            <button type="button" class="btn btn-success btn-sm">
+              Comprar
+              <FaShoppingCart className="fa-sm ml-1 mb-1" />
+            </button>
           </div>
-          <div className='col-12 mt-5'>
-            <Title text='Botões'/>
-          </div>
-          <Button {...buttonprops}/>
-          <Button {...buttonprops2}/>
-          <Button {...buttonprops3}/>
-          <Button {...buttonprops4}/>
-          <Button {...buttonprops5}/>
-        </div>  
-        <div className='col-12 mt-5'>
-          <Title text='Lista'/>  
-        </div>  
-        <List {...lista}/>
-      </div>
+        </div>
+      </>
     );
   }
 }

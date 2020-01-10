@@ -1,11 +1,17 @@
-import React from 'react';
-import '../../styles/sidebar/index.scss';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import { FaHome, FaChartArea, FaCreditCard } from 'react-icons/fa';
+import React from "react";
+import "../../styles/sidebar/index.scss";
+import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav";
+import {
+  FaHome,
+  FaChartArea,
+  FaCreditCard,
+  FaUtensils,
+  FaHamburger
+} from "react-icons/fa";
 
 export default function Sidebar(props) {
-  const defaultSelected = window.location.pathname.split('/').pop();
+  const defaultSelected = window.location.pathname.split("/").pop();
   return (
     <SideNav
       onToggle={open => {
@@ -14,55 +20,42 @@ export default function Sidebar(props) {
       expanded={props.expanded}
       className="bg-primary"
     >
-      <SideNav.Toggle
-        className='sidebar-icons'
-      />
-      <SideNav.Nav
-
-        defaultSelected={defaultSelected}
-      >
-        <NavItem onSelect={() => { window.location = '/home' }} eventKey="home">
+      <SideNav.Toggle className="sidebar-icons" />
+      <SideNav.Nav defaultSelected={defaultSelected}>
+        <NavItem
+          onSelect={() => {
+            window.location = "/home";
+          }}
+          eventKey="home"
+        >
           <NavIcon>
-            <FaHome
-              className='sidebar-icons text-white'
-            />
+            <FaHome className="sidebar-icons text-white" />
           </NavIcon>
-          <NavText>
-            Home
-          </NavText>
+          <NavText>Home</NavText>
         </NavItem>
-        <NavItem onSelect={() => { window.location = '/aplicar-credito' }} eventKey="aplicar-credito">
+        <NavItem
+          onSelect={() => {
+            window.location = "/cardapio";
+          }}
+          eventKey="cardapio"
+        >
           <NavIcon>
-            <FaCreditCard
-              className='sidebar-icons text-white'
-            />
+            <FaUtensils className="sidebar-icons text-white" />
           </NavIcon>
-          <NavText>
-            Aplicar Crédito
-          </NavText>
+          <NavText>Cardápio</NavText>
         </NavItem>
-        <NavItem eventKey="charts">
+        <NavItem
+          onSelect={() => {
+            window.location = "/ingredientes";
+          }}
+          eventKey="ingredientes"
+        >
           <NavIcon>
-            <FaChartArea
-              className='sidebar-icons text-white'
-            />
+            <FaHamburger className="sidebar-icons text-white" />
           </NavIcon>
-          <NavText>
-            Charts
-              </NavText>
-          <NavItem onSelect={() => { window.location = '/exemplo' }} eventKey="exemplo">
-            <NavText>
-              Line Chart
-              </NavText>
-          </NavItem>
-          <NavItem onSelect={() => { window.location = '/exemplo' }} eventKey="charts/barchart">
-            <NavText>
-              Bar Chart
-              </NavText>
-          </NavItem>
+          <NavText>Ingredientes</NavText>
         </NavItem>
       </SideNav.Nav>
     </SideNav>
-  )
+  );
 }
-
