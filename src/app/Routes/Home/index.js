@@ -11,6 +11,7 @@ export default function Home(props) {
   const [orderTotal, setOrderTotal] = useState(0);
   const [creditPrice, setCreditPrice] = useState(0);
   const [message, setMessage] = useState("");
+  $('[data-toggle="tooltip"]').tooltip();
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -100,7 +101,13 @@ export default function Home(props) {
             className="d-flex"
             style={{ justifyContent: "flex-end", marginTop: "-15px" }}
           >
-            <button type="submit" className="btn btn-success btn-sm">
+            <button
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Defina um valor entre 1 e 50 e clique para adquirí-los."
+              type="submit"
+              className="btn btn-success btn-sm"
+            >
               Comprar
               <FaShoppingCart className="fa-sm ml-1 mb-1" />
             </button>

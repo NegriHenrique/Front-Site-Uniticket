@@ -44,7 +44,7 @@ const gridOptions = {
 };
 
 const overlayNoRowsTemplate =
-  '<span style="padding: 10px; border: 2px solid #444; background: lightgoldenrodyellow;">Não foi encontrado cardápio disponível para o período informado</span>';
+  '<span style="padding: 10px; border: 2px solid #444; background: lightgoldenrodyellow;">Não foi encontrado cardápio disponível para o período informado.</span>';
 
 export default function Cardapio() {
   const [baseDay, setBaseDay] = useState(new Date());
@@ -223,12 +223,12 @@ export default function Cardapio() {
         <button
           onClick={() => updateBaseDay("BACKWARDS")}
           type="button"
-          className="btn btn-light"
+          className="btn btn-outline-primary"
           data-toggle="tooltip"
           data-placement="top"
           title="Clique para visualizar o cardápio da semana anterior."
         >
-          <FaLessThan fontSize="1.5em" color="#2a73f3" />
+          <FaLessThan />
         </button>
         <h3 className="px-3 mt-2">
           Cardápio de {`${startOfWeek} a ${endOfWeek}`}
@@ -236,12 +236,12 @@ export default function Cardapio() {
         <button
           onClick={() => updateBaseDay("FORWARD")}
           type="button"
-          className="btn btn-light"
+          className="btn btn-outline-primary"
           data-toggle="tooltip"
           data-placement="top"
           title="Clique para visualizar o cardápio da próxima semana."
         >
-          <FaGreaterThan fontSize="1.5em" color="#2a73f3" />
+          <FaGreaterThan />
         </button>
       </div>
       <hr />
@@ -433,7 +433,7 @@ export default function Cardapio() {
                 className="btn btn-success btn-sm ml-2"
                 data-toggle="tooltip"
                 data-placement="top"
-                title="Caso o retaurante esteja aberto no dia, preencha todos os campos ao lado e clique aqui para inserir."
+                title="Caso o restaurante esteja aberto no dia, preencha todos os campos ao lado e clique aqui para inserir."
               >
                 Novo
                 <FaPlus className="fa-sm ml-1 mb-1" />

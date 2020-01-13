@@ -19,6 +19,7 @@ export default function Ingredientes() {
   const [ingredientType, setIngredientType] = useState("choose");
   const [message, setMessage] = useState("");
   const [state, setState] = useState("VIEW");
+  $('[data-toggle="tooltip"]').tooltip();
 
   const setEditState = () => {
     setState("EDIT");
@@ -134,6 +135,9 @@ export default function Ingredientes() {
             onClick={() => setEditState()}
             type="button"
             className="btn btn-primary btn-sm"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Selecione um ingrediente e clique aqui para editá-lo."
           >
             Editar
             <FaPencilAlt className="fa-sm ml-1 mb-1" />
@@ -142,6 +146,9 @@ export default function Ingredientes() {
             onClick={() => deleteIngredient()}
             type="button"
             className="btn btn-danger btn-sm ml-2"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Selecione um ingrediente e clique aqui para excluí-lo."
           >
             Excluir
             <FaTrash className="fa-sm ml-1 mb-1" />
@@ -198,6 +205,9 @@ export default function Ingredientes() {
             type="button"
             className="btn btn-primary btn-sm"
             onClick={() => saveIngredient()}
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Clique aqui para salvar as edições feitas em um ingrediente."
           >
             Salvar
             <FaSave className="fa-sm ml-1 mb-1" />
@@ -206,6 +216,9 @@ export default function Ingredientes() {
             onClick={() => addNewIngredient()}
             type="button"
             className="btn btn-success btn-sm ml-2"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Preencha os campos nome e tipo e clique aqui para inserir."
           >
             Novo
             <FaPlus className="fa-sm ml-1 mb-1" />
